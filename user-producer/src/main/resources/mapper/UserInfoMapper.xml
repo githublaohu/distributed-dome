@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dome.user.producer.mapper.UserInfoMapper">
+
+	<resultMap id="userInfo" type="com.dome.user.entity.UserInfo">
+		<id column="ui_id " property="uiId" />
+		<result column="ui_name"       property="uiName" />
+		<result column="ui_sex"        property="ui_sex" />
+		<result column="is_delete"     property="isDelete" />
+	</resultMap>
+
+	<sql id="selectSql">
+		ui_id , ui_name , ui_sex , is_delete
+	</sql>
+
+	<!-- 单条|批量 保存   的insert部分 -->
+	<sql id="insert_sql">
+		user_info ( ui_name , ui_sex )
+	</sql>
+	
+	<!-- 20180713： 不用插入的字段 : fm_id , fm_send_time , fm_send_read , fm_del  -->
+	<insert id="save"  useGeneratedKeys="true" keyProperty="uiId">
+		insert into  <include refid="insert_sql"/>
+		values ( #{uiName} , #{uiSex} )
+	</insert>
+
+	<insert id="batchSave" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="uiId">
+		insert into <include refid="insert_sql"/>  values
+		<foreach collection="list" item="item" separator=",">
+			values ( #{uiName} , #{uiSex} )
+		</foreach>
+	</insert>
+
+	<select id="queryUserInfo"  resultMap="userInfo">
+		select  
+			<include refid="selectSql" /> 
+		from user_info ;
+	</select>
+	
+</mapper>

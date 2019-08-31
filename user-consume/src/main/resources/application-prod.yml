@@ -1,0 +1,52 @@
+# Server settings
+server:
+  port: 12140
+  context-path: "/promotionCoupon"
+
+# Shell settings
+shell:
+  ssh:
+    port: 32140
+  auth:
+    simple:
+      user:
+        name: vpclub
+        password: 5pC1ub
+spring:
+  dubbo:
+    basePackages: cn.vpclub.promotion.coupon.consumer
+
+    application:
+      name: vp-promotion-coupon-consumer
+      owner: vpclub
+
+    protocol:
+      port: 22140
+
+    consumer:
+      check: false
+
+    provider:
+      timeout: 3000
+      retries: 1
+      delay: -1
+
+    registry:
+      address: zookeeper://10.46.125.195:2181
+      timeout: 30000
+
+  redis:
+    database: 2
+    host: 10.46.125.194
+    password:
+    port: 6379
+
+# LOGGING
+logging:
+    level:
+       tk.mybatis: DEBUG
+
+producer:
+    namesrv: 172.16.6.6:9876
+    group  : receive_group
+    topic  : couponCodeReceive

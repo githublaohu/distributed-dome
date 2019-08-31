@@ -1,0 +1,32 @@
+# application properties
+server:
+  port: 12140
+  
+spring:
+  redis:
+      database: 7
+      host: 172.16.45.3
+      password:
+      port: 6379
+      pool:
+        max-idle: 32
+        min-idle: 12
+        max-active: 32
+        max-wait: 1000
+        
+dubbo:
+    basePackages: com.dome.user.consumer
+
+    application:
+      name: dome-user-consume
+      owner: dome
+
+    provider:
+      timeout: 30000
+      retries: 1
+      delay: -1
+
+    registry:
+      address: zookeeper://120.79.22.194:2181
+      register: true
+      subscribe: true

@@ -1,0 +1,74 @@
+spring:
+  datasource:
+    name: vp_coupon
+    url: jdbc:mysql://120.79.211.158:3306/test?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: 111333
+    # using druid data source
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    # encrypt password
+    filters: config
+  redis:
+    database: 3
+    host: 172.16.6.202
+    password:
+    port: 6379
+    pool:
+      max-idle: 48
+      min-idle: 0
+      max-active: 24
+      max-wait: -1
+
+dubbo:
+  scan:
+    base-packages: com.dome.user.producer.server.impl
+  application:
+    name: dome-user-producer
+    owner: dome
+
+  protocol:
+    name: dubbo
+    port: 22130
+    accesslog: true
+
+  provider:
+    timeout: 30000
+    retries: 1
+    delay: -1
+
+  registry:
+    address: zookeeper://120.79.22.194:2181
+    register: true
+    subscribe: true
+
+# LOGGING
+logging:
+  level:
+     tk.mybatis: DEBUG
+     
+mybatis:
+    mapperLocations: "classpath:mapper/*Mapper.xml"
+    checkConfig-location : false
+    configuration:
+        useGeneratedKeys: true
+        mapUnderscoreToCamelCase: true
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+    
