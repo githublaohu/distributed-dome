@@ -20,8 +20,16 @@
 		<dubbo.version>2.7.3</dubbo.version>
 		<spring-version>5.0.15.RELEASE</spring-version>
 		<spring-boot-version>2.1.7.RELEASE</spring-boot-version>
+		<dubbo.nacos.version>0.0.1</dubbo.nacos.version>
 	</properties>
 	<dependencies>
+		<!-- Dubbo Nacos registry dependency -->
+	    <dependency>
+	        <groupId>com.alibaba</groupId>
+	        <artifactId>dubbo-registry-nacos</artifactId>
+	        <version>${dubbo.nacos.version}</version>
+	    </dependency> 
+	
 		<dependency>
 			<groupId>dubbo-dome</groupId>
 			<artifactId>user-service</artifactId>
