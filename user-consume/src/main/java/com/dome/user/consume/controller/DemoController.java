@@ -1,10 +1,10 @@
 package com.dome.user.consume.controller;
 
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.dome.user.service.DemoService;
 
 @RestController("demoController")
@@ -16,7 +16,7 @@ public class DemoController {
 	
 	@GetMapping("sayName")
 	public String sayName() {
-		return demoService.sayName("调用成功了");
+		return demoService.sayName("使用 apache的最新的调用成功了");
 	}
 	
 }
