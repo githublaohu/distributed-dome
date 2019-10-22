@@ -50,9 +50,7 @@ dubbo:
     delay: -1
 
   registry:
-    address: zookeeper://120.79.22.194:2181
-    register: true
-    subscribe: true
+    address: nacos://47.104.171.106:8848
 
 # LOGGING
 logging:
