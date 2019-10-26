@@ -16,7 +16,7 @@ public class DemoController {
 	
 	@GetMapping("sayName")
 	public String sayName() {
-		return demoService.sayName("使用 apache的最新的调用成功了");
+		return demoService.sayName("使用 apache的最新的调用成功了，dubbo是在apche里面的包");
 	}
 	
 }
