@@ -17,9 +17,15 @@
 		<dubbo.version>2.7.3</dubbo.version>
 		<spring-version>5.0.15.RELEASE</spring-version>
 		<spring-boot-version>2.1.7.RELEASE</spring-boot-version>
-		<dubbo.nacos.version>0.0.1</dubbo.nacos.version>
+		<nacos_version>1.1.1</nacos_version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>io.github.githublaohu</groupId>
+			<artifactId>dubbo-springmvc</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>dubbo-dome</groupId>
 			<artifactId>user-service</artifactId>
@@ -39,35 +45,6 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- Dubbo Nacos registry dependency -->
-	    <dependency>
-	        <groupId>com.alibaba</groupId>
-	        <artifactId>dubbo-registry-nacos</artifactId>
-	        <version>${dubbo.nacos.version}</version>
-	    </dependency>
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-actuator</artifactId>
-			<version>${spring-boot-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-			<version>${spring-boot-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring-boot-version}</version>
 		</dependency>
 
 	</dependencies>
